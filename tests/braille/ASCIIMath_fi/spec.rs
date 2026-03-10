@@ -54,7 +54,7 @@ fn p12_ratio () -> Result<()> {
 
 #[test]
 fn p12_fractional () -> Result<()> {
-    let expr = r#"<math><mfrac><mrow><mn>6</mn><mo>&#8290;</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo>&#8290;</mo><mi>x</mi></mrow><mrow><mrow><mn>6</mn><mo>&#8290;</mo><mi>x</mi><mo>&#x2212;</mo><mn>4</mn><mo>&#8290;</mo><mi>x</mi></mrow></mfrac></math>"#;
+    let expr = r#"<math><mfrac><mrow><mn>6</mn><mo>&#8290;</mo><mi>x</mi><mo>+</mo><mn>3</mn><mo>&#8290;</mo><mi>x</mi></mrow><mrow><mn>6</mn><mo>&#8290;</mo><mi>x</mi><mo>&#x2212;</mo><mn>4</mn><mo>&#8290;</mo><mi>x</mi></mrow></mfrac></math>"#;
     test_braille("ASCIIMath-fi", expr, r"(6 x +3 x) /(6 x -4 x)")?;
     return Ok(());
 
@@ -159,7 +159,7 @@ fn p14_long_fractional () -> Result<()> {
 
 #[test]
 fn p15_exponent_plus () -> Result<()> {
-    let expr = r#"<math><msup><mn>3</mn><mn>2</mn></msup><mo>+</mo><msup><mn>4</mn><mn>2</mn></msup</math>"#;
+    let expr = r#"<math><msup><mn>3</mn><mn>2</mn></msup><mo>+</mo><msup><mn>4</mn><mn>2</mn></msup></math>"#;
     test_braille("ASCIIMath-fi", expr, r"3^2 +4^2")?;
     return Ok(());
 
@@ -947,7 +947,7 @@ fn p35_atomic_numbers() -> Result<()> {
 
 #[test]
 fn p34_chem_single_bond_colon() -> Result<()> {
-    let expr = r#"<math><mi>C</<mi><mo>:</mo><mi>C</mi></math>"#;
+    let expr = r#"<math><mi>C</mi><mo>:</mo><mi>C</mi></math>"#;
     test_braille("ASCIIMath-fi", expr, r"C;C")?;
     return Ok(());
 
@@ -955,7 +955,7 @@ fn p34_chem_single_bond_colon() -> Result<()> {
 
 #[test]
 fn p34_chem_single_bond_dash() -> Result<()> {
-    let expr = r#"<math><mi>C</<mi><mo>-</mo><mi>C</mi></math>"#;
+    let expr = r#"<math><mi>C</mi><mo>-</mo><mi>C</mi></math>"#;
     test_braille("ASCIIMath-fi", expr, r"C;C")?;
     return Ok(());
 
@@ -963,7 +963,7 @@ fn p34_chem_single_bond_dash() -> Result<()> {
 
 #[test]
 fn p34_chem_double_bond_equal_sign() -> Result<()> {
-    let expr = r#"<math><mi>C</<mi><mo>=</mo><mi>C</mi></math>"#;
+    let expr = r#"<math><mi>C</mi><mo>=</mo><mi>C</mi></math>"#;
     test_braille("ASCIIMath-fi", expr, r"C=C")?;
     return Ok(());
 
@@ -971,7 +971,7 @@ fn p34_chem_double_bond_equal_sign() -> Result<()> {
 
 #[test]
 fn p34_chem_double_bond_double_colon() -> Result<()> {
-    let expr = r#"<math><mi>C</<mi><mo>::</mo><mi>C</mi></math>"#;
+    let expr = r#"<math><mi>C</mi><mo>::</mo><mi>C</mi></math>"#;
     test_braille("ASCIIMath-fi", expr, r"C=C")?;
     return Ok(());
 
@@ -979,7 +979,7 @@ fn p34_chem_double_bond_double_colon() -> Result<()> {
 
 #[test]
 fn p34_chem_triple_bond() -> Result<()> {
-    let expr = r#"<math><mi>C</<mi><mo>≡</mo><mi>C</mi></math>"#;
+    let expr = r#"<math><mi>C</mi><mo>≡</mo><mi>C</mi></math>"#;
     test_braille("ASCIIMath-fi", expr, r"C;=C")?;
     return Ok(());
 
@@ -1027,7 +1027,7 @@ fn p34_Na_plus() -> Result<()> {
 
 #[test]
 fn p34_Cu_to_2_plus() -> Result<()> {
-    let expr = r#"<math><msup><mi>Cu</mi><mrow><mn>2<mo>+</mo></mrow></msup></math>"#;
+    let expr = r#"<math><msup><mi>Cu</mi><mrow><mn>2</mn><mo>+</mo></mrow></msup></math>"#;
     test_braille("ASCIIMath-fi", expr, r"Cu^(2 +)")?;
     return Ok(());
 
@@ -1158,7 +1158,7 @@ fn p34_chem_text_over_arrow() -> Result<()> {
     let expr = r#"<math>
 <mi>Ca</mi><msub><mi>Co</mi><mn>3</mn></msub><mo>(</mo><mi>s</mi><mo>)</mo>
     <mover><mo>&#x27F6;</mo><mtext>kuumennus</mtext></mover>
-    <mi>Ca</mi><mi>O</mi><mo>(</mo><mi>s</mi><mo>)</mo><mo>+</mo><msub><mi>C</mi><mi>O</mi><mn>2</mn></msub><mo>(</mo><mi>g</mi><mo>)</mo>
+    <mi>Ca</mi><mi>O</mi><mo>(</mo><mi>s</mi><mo>)</mo><mo>+</mo><msub><mrow><mi>C</mi><mi>O</mi></mrow><mn>2</mn></msub><mo>(</mo><mi>g</mi><mo>)</mo>
 </math>"#;
     test_braille("ASCIIMath-fi", expr, r"CaCO_3 (s) -> kuumennus -> CaO (s) +CO_2 (g)")?;
     return Ok(());
