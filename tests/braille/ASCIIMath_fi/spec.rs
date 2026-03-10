@@ -47,7 +47,7 @@ fn p12_simple_frac () -> Result<()> {
 #[test]
 fn p12_ratio () -> Result<()> {
     let expr = r#"<math><mn>1</mn><mo>:</mo><mn>1000</mn></math>"#;
-    test_braille_prefs("ASCIIMath-fi", expr, r"1 :1000")?;
+    test_braille("ASCIIMath-fi", expr, r"1 :1000")?;
     return Ok(());
 
 }
