@@ -1055,7 +1055,7 @@ fn p35_Mg_S_chemical_equation() -> Result<()> {
 }
 
 #[test]
-fn p34_Cu_to_2_plus() -> Result<()> {
+fn p35_Ag_plus_chemical_equation() -> Result<()> {
     let expr = r#"<math><msup><mi>Ag</mi><mrow><mo>+</mo> </mrow></msup>
 <msup><mi>S</mi><mrow><mo>+</mo> </mrow></msup><mo>&#x2192;</mo><mi>Ag</mi><mi>Cl</mi></math>"#;
     test_braille("ASCIIMath-fi", expr, r"Ag^+ +Cl^- -> AgCl")?;
