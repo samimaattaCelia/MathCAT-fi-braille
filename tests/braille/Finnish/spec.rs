@@ -252,6 +252,7 @@ fn p15_less_than_or_equal_to() -> Result<()> {
 }
 
 // Fractions with 'dropped dots'.
+// When the fraction ends in a parenthesis (dots 356), the dot 6 is used to end the 'dropped dots' zone, so it is not confused with 'dropped dots' for number 0 (dots 356). 
 #[test]
 fn p15_fractions_minus() -> Result<()> {
     let expr = "<math>
