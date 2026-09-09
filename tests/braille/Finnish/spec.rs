@@ -507,6 +507,7 @@ fn p19_fraction_multiplication_Finnish_notation_multiscripts() -> Result<()> {
     return Ok(());
 }
 
+// This is Finnish notation where the numerator and denomator is multiplied by the same expression that is in the pre-supercript. Structure is always: [multiplicator][parenthesis]
 #[test]
 fn p19_fraction_multiplication_Finnish_notation_multiscripts_2() -> Result<()> {
     let expr = "<math>
@@ -565,6 +566,7 @@ fn p22_fraction_division_Finnish_notation_msup() -> Result<()> {
     return Ok(());
 }
 
+// This is Finnish notation for dividing the numerator and denominator by the same expression. It is always of the form: [parenthesis][divisor]
 #[test]
 fn p22_fraction_division_Finnish_notation_msup_2() -> Result<()> {
     let expr = "<math>
@@ -621,6 +623,8 @@ fn p23_equation_1_with_invisible_multiplication() -> Result<()> {
     return Ok(());
 }
 
+// This is Finnish notation. The bar | is used to denote that an operation is done on both sides of the equation.
+// Here the equation is divided by five on both sides.
 #[test]
 fn p22_equation_solving_notation() -> Result<()> {
     let expr = "<math>
@@ -634,10 +638,11 @@ fn p22_equation_solving_notation() -> Result<()> {
     <mn>5</mn>
 </math>";
     test_braille("Finnish", expr, "⠼⠑⠀⠭⠀⠶⠤⠼⠁⠚⠀⠀⠸⠀⠌⠼⠑")?;
-    // Context: the equation is divided by five on both sides.
+    
     return Ok(());
 }
 
+// This is Finnish notation. The bar | is used to denote that an operation is done on both sides of the equation. This is not a real life example, but a string of mark up that should produce the output in the test.
 #[test]
 fn operate_by_on_both_sides() -> Result<()> {
     let expr = "<math>
@@ -669,7 +674,6 @@ fn operate_by_on_both_sides() -> Result<()> {
     <mn>5</mn>
 </math>";
     test_braille("Finnish", expr, "⠀⠀⠸⠀⠖⠼⠑⠀⠀⠸⠀⠤⠼⠑⠀⠀⠸⠀⠄⠼⠑⠀⠀⠸⠀⠄⠼⠑⠀⠀⠸⠀⠒⠼⠑⠀⠀⠸ ⠦⠴⠬⠀⠀⠸⠀⠌⠼⠑")?;
-  // Context: When marking up operation on both sides on an equation, this is the correct result.
     return Ok(());
   }
 
@@ -717,6 +721,7 @@ fn p24_fraction_2() -> Result<()> {
     return Ok(());
 }
 
+// Rule fix: Fractions' division requires double parentheses so that the order of operations is respected.
 #[test]
 fn p25_long_fraction() -> Result<()> {
     let expr = "<math>
@@ -763,7 +768,6 @@ fn p25_long_fraction() -> Result<()> {
   </mrow>
 </math>";
     test_braille("Finnish", expr, "⠦⠦⠭⠬⠀⠤⠼⠛⠀⠭⠀⠖⠼⠁⠃⠴⠀⠌⠦⠼⠙⠀⠭⠀⠤⠼⠃⠚⠴⠴⠀⠒⠦⠦⠭⠬⠀⠤⠼⠓⠀⠭⠀⠖⠼⠁⠑⠴⠀⠌⠦⠼⠙⠀⠭⠀⠤⠼⠁⠋⠴⠴")?;
-    // Rule fix: Fractions' division requires double parentheses so that the order of operations is respected.
     return Ok(());
 }
 
