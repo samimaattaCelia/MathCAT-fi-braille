@@ -325,7 +325,7 @@ fn p16_fractional() -> Result<()> {
 
 #[test]
 fn p16_absolute_value() -> Result<()> {
-    let expr = " <math>
+    let expr = "<math>
       <mrow>
         <mrow>
           <mo>|</mo>
