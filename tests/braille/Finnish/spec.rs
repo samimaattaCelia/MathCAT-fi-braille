@@ -415,8 +415,7 @@ fn p17_multiple_operations() -> Result<()> {
       <mn>2</mn>
     </msup>
 </math>";
-    test_braille("Finnish", expr, "⠼⠑⠀⠄⠼⠉⠬⠀⠖⠦⠼⠓⠁⠀⠤⠼⠋⠚⠴⠀⠌⠼⠉⠀⠤⠦⠼⠃⠀⠖⠼⠙⠴⠬")?;
-    // : as a division sign
+    test_braille("Finnish", expr, "⠼⠑⠀⠄⠼⠉⠬⠀⠖⠦⠼⠓⠁⠀⠤⠼⠋⠚⠴⠀⠒⠼⠉⠀⠤⠦⠼⠃⠀⠖⠼⠙⠴⠬")?;
     return Ok(());
 }
 
