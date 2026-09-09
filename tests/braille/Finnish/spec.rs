@@ -1001,22 +1001,22 @@ fn msub_parentheses() -> Result<()> {
     return Ok(());
 }
 
-// Overline notation comes after the subscript
+// Overline braille notation (dots 156) comes after the (sub)script.
+// For the rule: order should be first subscript and then superscript
 #[test]
 fn msub_with_vector() -> Result<()> {
     let expr = "<math>
-    <mover>
       <msub>
+      <mover>
         <mi>a</mi>
-        <mtext>b</mtext>
+        <mo>¯</mo>
+      </mover>
+        <mi>b</mi>
       </msub>
-      <mo>¯</mo>
-    </mover>
     <mo>+</mo>
     <mn>1</mn>
 </math>";
     test_braille("Finnish", expr, "⠁⠡⠃⠱⠀⠖⠼⠁")?;
-    // For the rule: order should be first subscript and then superscript
     return Ok(());
 }
 
