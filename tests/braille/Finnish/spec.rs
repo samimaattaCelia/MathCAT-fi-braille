@@ -2241,3 +2241,216 @@ fn p64_chemistry_bond_3() -> Result<()> {
     test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
     return Ok(());
 }
+
+// New tests start here 11.9.2026
+
+#[test]
+fn approx_1() -> Result<()> {
+    let expr = "<math>
+  <mrow>
+    <mn>230</mn>
+    <mo>≈</mo>
+    <mn>200</mn>
+  </mrow>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn approx_2() -> Result<()> {
+    let expr = "<math>
+  <mrow>
+    <mn>80</mn>
+    <mo>+</mo>
+    <mn>60</mn>
+    <mo>≈</mo>
+    <mn>150</mn>
+  </mrow>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn large_numbers_1() -> Result<()> {
+    let expr = "<math>
+  <mrow>
+    <mn>20.000</mn>
+    <mo>+</mo>
+    <mn>3000</mn>
+    <mo>=</mo>
+    <mn>23.000</mn>
+  </mrow>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn large_numbers_2() -> Result<()> {
+    let expr = "<math>
+  <mrow>
+    <mn>88.888</mn>
+    <mo>−</mo>
+    <mn>8080</mn>
+    <mo>=</mo>
+    <mn>80.808</mn>
+  </mrow>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn comparison_multiple_numbers() -> Result<()> {
+    let expr = "<math>
+  <mrow>
+    <mn>1000</mn>
+    <mo>&lt;</mo>
+    <mn>9000</mn>
+    <mo>&lt;</mo>
+    <mn>10.000</mn>
+  </mrow>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn division_slash_1() -> Result<()> {
+    let expr = "<math>
+  <mrow>
+    <mn>9</mn>
+    <mo>/</mo>
+    <mn>3</mn>
+    <mo>=</mo>
+    <mn>3</mn>
+  </mrow>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn division_slash_2() -> Result<()> {
+    let expr = "<math>
+  <mrow>
+    <mn>100</mn>
+    <mo>/</mo>
+    <mn>2</mn>
+    <mo>=</mo>
+    <mn>50</mn>
+  </mrow>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn units_grams() -> Result<()> {
+    let expr = "<math>
+  <mn>380</mn>
+  <mi>g</mi>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn test_default() -> Result<()> {
+    let expr = "<math>
+    <mn>4</mn>
+    <mi>kg</mi>
+    <mo>−</mo>
+    <mn>150</mn>
+    <mi>g</mi>
+    <mo>=</mo>
+    <mn>3,850</mn>
+    <mi>kg</mi>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn invisible_plus_with_mixed_fraction_1() -> Result<()> {
+    let expr = "<math>
+    <mn>1</mn>
+    <mo>&#x2064;</mo>
+    <mfrac>
+      <mn>1</mn>
+      <mn>2</mn>
+    </mfrac>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn invisible_plus_with_mixed_fraction_2() -> Result<()> {
+    let expr = "<math>
+    <mn>1</mn>
+    <mo>&#x2064;</mo>
+    <mfrac>
+      <mn>1</mn>
+      <mn>2</mn>
+    </mfrac>
+    <mo>−</mo>
+    <mn>2</mn>
+    <mo>&#x2064;</mo>
+    <mfrac>
+      <mn>1</mn>
+      <mn>3</mn>
+    </mfrac>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+#[test]
+fn count_with_steps() -> Result<()> {
+    let expr = "<math>
+  <mtable>
+    <mtr>
+      <mtd>
+        <mo>(</mo>
+        <mn>10</mn>
+        <mo>−</mo>
+        <mn>6</mn>
+        <mo>)</mo>
+        <mo>&#x22C5;</mo>
+        <mo>(</mo>
+        <mn>5</mn>
+        <mo>+</mo>
+        <mn>5</mn>
+        <mo>)</mo>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd>
+        <mo>=</mo>
+        <mn>4</mn>
+        <mo>&#x22C5;</mo>
+        <mn>10</mn>
+      </mtd>
+    </mtr>
+    <mtr>
+      <mtd>
+        <mo>=</mo>
+        <mn>40</mn>
+      </mtd>
+    </mtr>
+  </mtable>
+</math>";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
+
+
+#[test]
+fn test_default() -> Result<()> {
+    let expr = "";
+    test_braille("Finnish", expr, "⠠⠝⠀⠒⠒⠒⠠⠝")?;
+    return Ok(());
+}
