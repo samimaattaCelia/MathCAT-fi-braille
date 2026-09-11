@@ -1020,6 +1020,7 @@ fn msub_with_vector() -> Result<()> {
     return Ok(());
 }
 
+// Overline braille notation (dots 156) comes after the (sub)script.
 #[test]
 fn msub_with_vector_with_sub_text() -> Result<()> {
     let expr = "<math>
@@ -1036,10 +1037,10 @@ fn msub_with_vector_with_sub_text() -> Result<()> {
   </mrow>
  </math>";
     test_braille("Finnish", expr, "⠁⠡⠞⠥⠅⠊⠱⠀⠖⠼⠁")?;
-    // For the rule: order should be first subscript and then superscript
     return Ok(());
 }
 
+// First the subscript and then the superscript.
 #[test]
 fn msubsup() -> Result<()> {
     let expr = "<math>
@@ -1055,6 +1056,7 @@ fn msubsup() -> Result<()> {
     return Ok(());
 }
 
+// The scripts should have parentheses for easier reading.
 #[test]
 fn msubsup_parentheses_in_sub_and_sup() -> Result<()> {
     let expr = "<math>
@@ -1316,6 +1318,7 @@ fn p40_p_or_q() -> Result<()> {
     return Ok(());
 }
 
+// The colon : should be written directly after the function f (and similar). This is unlike when it is used as a division sign and for ratio.
 #[test]
 fn p41_function_definition() -> Result<()> {
     let expr = "<math>
@@ -1332,6 +1335,7 @@ fn p41_function_definition() -> Result<()> {
     return Ok(());
 }
 
+// Here the bar | should have whitespace on both sides of the character.
 #[test]
 fn p41_inverse_function() -> Result<()> {
     let expr = "<math>
@@ -1434,8 +1438,8 @@ fn p41_function_with_parts_with_arrow() -> Result<()> {
     return Ok(());
 }
 
-#[test]
 // Two 5-dots separate the rows in the 2D math. Format: [whitespace][dot 5][dot 5][whitespace]. This is not an operator.
+#[test]
 fn p40_function_with_parts() -> Result<()> {
   let expr = "<math>
       <mi>f</mi>
@@ -1499,6 +1503,8 @@ fn p40_function_with_parts() -> Result<()> {
     return Ok(());
 }
 
+// Two 5-dots separate the rows in the 2D math. Format: [whitespace][dot 5][dot 5][whitespace]. This is not an operator.
+// In the matrix the parentheses are repeated for every row.
 #[test]
 fn p42_matrix() -> Result<()> {
     let expr = "<math>
@@ -1570,6 +1576,8 @@ fn p42_matrix() -> Result<()> {
 }
 
 
+// Two 5-dots separate the rows in the 2D math. Format: [whitespace][dot 5][dot 5][whitespace]. This is not an operator.
+// In the determinant the vertical bar is repeated for every row.
 #[test]
 fn p42_determinant() -> Result<()> {
     let expr = "<math>
@@ -1609,12 +1617,10 @@ fn p42_determinant() -> Result<()> {
     <mi>b</mi>
     </math>";
     test_braille("Finnish", expr, "⠸⠁⠀⠖⠃⠀⠁⠀⠤⠃⠸⠀⠐⠐⠀⠸⠁⠀⠤⠃⠀⠁⠀⠖⠃⠸⠀⠶⠼⠙⠀⠁⠃")?;
-    // Two 5-dots separate the rows in the 2D math. Format: [whitespace][dot 5][dot 5][whitespace]. This is not an operator.
-    // Rules fix: There are extra whitespaces between the elements of the matrix.
     return Ok(());
 }
 
-
+// Dots 156 to signify the bar over "arc".
 #[test]
 fn p45_arcsin_with_bar_over() -> Result<()> {
     let expr = "<math>
@@ -1626,8 +1632,6 @@ fn p45_arcsin_with_bar_over() -> Result<()> {
 <mi>x</mi>
 </math>";
     test_braille("Finnish", expr, "⠁⠗⠉⠱⠀⠎⠊⠝⠀⠭")?;
-    // Dots 156 to signify the bar over "arc".
-    // Rules fix: There should be a whitespace after the bar.
     return Ok(());
 }
 
@@ -1668,6 +1672,7 @@ fn line_under_terminated_by_space() -> Result<()> {
     return Ok(());
 }
 
+// Needs parentheses so that grouping is clear.
 #[test]
 fn line_under_parentheses() -> Result<()> {
     let expr = "<math>
@@ -1683,11 +1688,10 @@ fn line_under_parentheses() -> Result<()> {
 <mn>1</mn>
 </math>";
     test_braille("Finnish", expr, "⠦⠎⠀⠌⠼⠃⠴⠤⠀⠖⠼⠁")?;
-    // Needs parentheses so that grouping works.
     return Ok(());
 }
 
-// 'Change of zone' dot 5 is used after the limit subscript notation.
+// 'Change of zone' dot 5 is used after the limit subscript notation. The subscript is in parentheses for easier reading.
 #[test]
 fn p48_limit_right_hand_approaching_Finnish_notation() -> Result<()> {
     let expr = "<math>
@@ -1713,7 +1717,7 @@ fn p48_limit_right_hand_approaching_Finnish_notation() -> Result<()> {
     return Ok(());
 }
 
-// 'Change of zone' dot 5 is used after the limit subscript notation.
+// 'Change of zone' dot 5 is used after the limit subscript notation. The subscript is in parentheses for easier reading.
 #[test]
 fn p48_limit_right_hand_approaching_Finnish_notation_with_msup() -> Result<()> {
     let expr = "<math>
@@ -1741,7 +1745,7 @@ fn p48_limit_right_hand_approaching_Finnish_notation_with_msup() -> Result<()> {
     return Ok(());
 }
 
-// 'Change of zone' dot 5 is used after the limit subscript notation.
+// 'Change of zone' dot 5 is used after the limit subscript notation. The subscript is in parentheses for easier reading.
 #[test]
 fn limit_approaches_from_below() -> Result<()> {
     let expr = "<math>
@@ -1766,7 +1770,7 @@ fn limit_approaches_from_below() -> Result<()> {
     return Ok(());
 }
 
-// This is a hack, so the Finnish substitution notation for integral would work. The intent is might be wrong, but that is what the notation means.
+// Finnish integral substitution notation. The intent might be wrong, but that is what the notation means.
 #[test]
 fn p49_integral_with_Finnish_notation_for_substitution() -> Result<()> {
     let expr = "<math>
@@ -1802,6 +1806,7 @@ fn p49_integral_with_Finnish_notation_for_substitution() -> Result<()> {
 }
 
 // Markup for lower and upper bounds for summation, product, intersection, union and such. "Equal to" character is replaced lower (dots 26) and upper (dots 35) bounds.
+// Parentheses are added for clarity. Dot 5 is used to end the zone of the upper bound.
 #[test]
 fn p49_summation_with_lower_upper_bounds() -> Result<()> {
     let expr = "<math>
@@ -1824,10 +1829,11 @@ fn p49_summation_with_lower_upper_bounds() -> Result<()> {
 </msub>
 </math>";
     test_braille("Finnish", expr, "⠸⠎⠡⠊⠢⠼⠚⠔⠝⠐⠦⠋⠡⠊⠀⠭⠡⠊⠴")?;
-    // Parentheses are added for clarity. Dot 5 is used to end the zone of the upper bound.
     return Ok(());
 }
 
+// Markup for lower and upper bounds for summation, product, intersection, union and such. "Equal to" character is replaced lower (dots 26) and upper (dots 35) bounds.
+// Dot 5 is used to end the zone of the upper bound.
 #[test]
 fn p49_union_with_lower_upper_bounds() -> Result<()> {
     let expr = "<math>
@@ -1846,10 +1852,11 @@ fn p49_union_with_lower_upper_bounds() -> Result<()> {
 </msub>
 </math>";
     test_braille("Finnish", expr, "⠳⠖⠡⠊⠢⠼⠁⠔⠝⠐⠠⠁⠡⠊")?;
-    // Dot 5 is used to end the zone of the upper bound.
     return Ok(());
 }
 
+// The test combines subscript notation and the lower and upper bound notation. "Equal to" character is replaced lower (dots 26) and upper (dots 35) bounds.
+// Dot 5 is used to end the zone of the upper bound.
 #[test]
 fn p49_sequence_with_lower_upper_bounds() -> Result<()> {
     let expr = "<math>
@@ -1870,11 +1877,11 @@ fn p49_sequence_with_lower_upper_bounds() -> Result<()> {
 <mi>∞</mi>
 </msubsup>
 </math>";
-    test_braille("Finnish", expr, "⠦⠭⠡⠝⠴⠡⠝⠢⠼⠁⠬⠿")?;
-    // Dot 5 is used to end the zone of the upper bound.
+    test_braille("Finnish", expr, "⠦⠭⠡⠝⠴⠡⠝⠢⠼⠁⠔⠿")?;
     return Ok(());
 }
 
+// Rule FIX: Real numbers character ℝ is wrong in braille and should only be ⠠⠗ (cap r)
 #[test]
 fn p50_such_that_y_greater_than_x() -> Result<()> {
     let expr = "<math>
@@ -1893,7 +1900,6 @@ fn p50_such_that_y_greater_than_x() -> Result<()> {
     <mi>x</mi>
 </math>";
     test_braille("Finnish", expr, "⠳⠂⠭⠀⠳⠔⠠⠗⠂⠀⠳⠢⠽⠀⠳⠔⠠⠗⠆⠀⠽⠀⠱⠀⠭")?;
-    // Sami, FI: The comma <mo>,</mo> is not produced by MathCAT. Should be.
     return Ok(());
 }
 
