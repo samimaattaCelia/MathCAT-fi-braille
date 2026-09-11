@@ -1881,7 +1881,7 @@ fn p49_sequence_with_lower_upper_bounds() -> Result<()> {
     return Ok(());
 }
 
-// Rule FIX: Real numbers character ℝ is wrong in braille and should only be ⠠⠗ (cap r)
+// Regular letters are used in the bold lettering.
 #[test]
 fn p50_such_that_y_greater_than_x() -> Result<()> {
     let expr = "<math>
@@ -1920,6 +1920,7 @@ fn p50_cube_root() -> Result<()> {
     return Ok(());
 }
 
+// The ⠯ character is used between the elements in the binomial.
 #[test]
 fn p50_binomial_with_factorial() -> Result<()> {
     let expr = r#"<math>
@@ -1952,7 +1953,6 @@ fn p50_binomial_with_factorial() -> Result<()> {
   </mrow>
 </math>"#;
     test_braille("Finnish", expr, "⠦⠼⠋⠯⠀⠼⠙⠴⠀⠶⠼⠋⠠⠲⠀⠌⠷⠼⠙⠠⠲⠀⠦⠼⠋⠀⠤⠼⠙⠠⠴⠠⠲⠾")?;
-    // The ⠯ character is used between the elements in the binomial.
     return Ok(());
 }
 
@@ -1987,8 +1987,6 @@ fn p50_conditional_probability() -> Result<()> {
     test_braille("Finnish", expr, "⠠⠏⠦⠠⠃⠀⠸⠀⠠⠁⠴⠀⠶⠠⠏⠦⠠⠁⠠⠃⠴⠀⠌⠠⠏⠦⠠⠁⠴")?;
     return Ok(());
 }
-
-
 
 #[test]
 fn p50_alternative_derivative_1() -> Result<()> {
@@ -2163,6 +2161,7 @@ fn p52_quadratic_formula() -> Result<()> {
     return Ok(());
 }
 
+// Sub- and superscripts are used before the atom sign. 
 #[test]
 fn p63_O16() -> Result<()> {
     // From MathType
@@ -2171,6 +2170,7 @@ fn p63_O16() -> Result<()> {
     return Ok(());
 }
 
+// The numbers are written as 'dropped dots' (like in fractions) right after the atom. No whitespace between the atoms.
 #[test]
 fn p64_chemical_equation_1() -> Result<()> {
     // From MathType
@@ -2186,6 +2186,7 @@ fn p64_sodium_ion() -> Result<()> {
     return Ok(());
 }
 
+// Whitespace before the ion's plus or minus sign if there is a number before it. Parentheses for clarity.
 #[test]
 fn p64_copper_ion() -> Result<()> {
     // From MathType
@@ -2201,6 +2202,7 @@ fn p64_chemistry_1() -> Result<()> {
     return Ok(());
 }
 
+// Whitespace before the dash, not after.
 #[test]
 fn p64_chemistry_bond_1() -> Result<()> {
     let expr = "<math intent=':chemical-formula'><mi>H</mi><mo>-</mo><mi>H</mi></math>";
@@ -2208,6 +2210,7 @@ fn p64_chemistry_bond_1() -> Result<()> {
     return Ok(());
 }
 
+// Whitespace before the colon, not after.
 #[test]
 fn p64_chemistry_bond_1_alternative() -> Result<()> {
     let expr = "<math intent=':chemical-formula'><mi>H</mi><mo>:</mo><mi>H</mi></math>";
@@ -2215,6 +2218,7 @@ fn p64_chemistry_bond_1_alternative() -> Result<()> {
     return Ok(());
 }
 
+// Whitespace before the dashes, not after.
 #[test]
 fn p64_chemistry_bond_2() -> Result<()> {
     let expr = "<math intent=':chemical-formula'><mi>O</mi><mo>=</mo><mi>O</mi></math>";
@@ -2222,6 +2226,7 @@ fn p64_chemistry_bond_2() -> Result<()> {
     return Ok(());
 }
 
+// Whitespace before the double colon, not after.
 #[test]
 fn p64_chemistry_bond_2_alternative() -> Result<()> {
     let expr = "<math intent=':chemical-formula'><mi>O</mi><mo>∷</mo><mi>O</mi></math>";
@@ -2229,6 +2234,7 @@ fn p64_chemistry_bond_2_alternative() -> Result<()> {
     return Ok(());
 }
 
+// Whitespace before the dashes, not after.
 #[test]
 fn p64_chemistry_bond_3() -> Result<()> {
     let expr = "<math intent=':chemical-formula'><mi>N</mi><mo>≡</mo><mi>N</mi></math>";
